@@ -55,6 +55,85 @@
     @keyframes fadeInUp {
       to { opacity: 1; transform: none; }
     }
+    
+    /* Enhanced scroll animations */
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+    .slide-in-left.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+    }
+    .slide-in-right.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .slide-in-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    .slide-in-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s ease-out;
+    }
+    .scale-in.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .rotate-in {
+      opacity: 0;
+      transform: rotate(-10deg) scale(0.8);
+      transition: all 0.8s ease-out;
+    }
+    .rotate-in.animate {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+    
+    .bounce-in {
+      opacity: 0;
+      transform: scale(0.3);
+      transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .bounce-in.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .stagger-animation {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .stagger-animation.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .stagger-animation:nth-child(1) { transition-delay: 0.1s; }
+    .stagger-animation:nth-child(2) { transition-delay: 0.2s; }
+    .stagger-animation:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-animation:nth-child(4) { transition-delay: 0.4s; }
+    .stagger-animation:nth-child(5) { transition-delay: 0.5s; }
+    .stagger-animation:nth-child(6) { transition-delay: 0.6s; }
+    
     .card {
       background: #fff;
       border-radius: 1.25rem;
@@ -90,6 +169,15 @@
     .social-link:hover {
       color: #f472b6;
       transform: scale(1.15);
+    }
+    
+    /* Progress bar animation */
+    .progress-bar {
+      width: 0%;
+      transition: width 1.5s ease-out;
+    }
+    .progress-bar.animate {
+      width: var(--progress-width);
     }
   </style>
 </head>
@@ -163,13 +251,13 @@
   <!-- About Section -->
   <section id="about" class="py-20 bg-white dark:bg-gray-800">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">À Propos de Moi</h2>
+      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white slide-in-up">À Propos de Moi</h2>
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 slide-in-left">
           En tant que développeuse informatique basée à Casablanca, je combine expertise technique et créativité pour créer des solutions web innovantes. 
           Mon parcours m'a permis de maîtriser les technologies modernes tout en développant une approche centrée sur l'utilisateur.
         </p>
-        <p class="text-lg text-gray-600 dark:text-gray-300">
+        <p class="text-lg text-gray-600 dark:text-gray-300 slide-in-right">
           Je m'efforce de créer des applications qui ne sont pas seulement techniquement solides, mais aussi intuitives et agréables à utiliser. 
           Mon objectif est de transformer des idées complexes en solutions élégantes et efficaces.
         </p>
@@ -185,7 +273,7 @@
       <!-- Main Skills Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12">
         <!-- Langages de Programmation -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-animation">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
               <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +288,7 @@
               <span class="text-xs text-gray-500">95%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+              <div class="bg-blue-500 h-2 rounded-full progress-bar" style="--progress-width: 95%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -208,7 +296,7 @@
               <span class="text-xs text-gray-500">90%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+              <div class="bg-blue-500 h-2 rounded-full progress-bar" style="--progress-width: 90%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -216,7 +304,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-blue-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -224,7 +312,7 @@
               <span class="text-xs text-gray-500">80%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+              <div class="bg-blue-500 h-2 rounded-full progress-bar" style="--progress-width: 80%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -232,13 +320,13 @@
               <span class="text-xs text-gray-500">75%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+              <div class="bg-blue-500 h-2 rounded-full progress-bar" style="--progress-width: 75%"></div>
             </div>
           </div>
         </div>
 
         <!-- Frameworks & Bibliothèques -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-animation">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
               <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -253,7 +341,7 @@
               <span class="text-xs text-gray-500">90%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-purple-500 h-2 rounded-full" style="width: 90%"></div>
+              <div class="bg-purple-500 h-2 rounded-full progress-bar" style="--progress-width: 90%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -261,7 +349,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-purple-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -269,7 +357,7 @@
               <span class="text-xs text-gray-500">80%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+              <div class="bg-purple-500 h-2 rounded-full progress-bar" style="--progress-width: 80%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -277,7 +365,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-purple-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -285,13 +373,13 @@
               <span class="text-xs text-gray-500">80%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+              <div class="bg-purple-500 h-2 rounded-full progress-bar" style="--progress-width: 80%"></div>
             </div>
           </div>
         </div>
 
         <!-- Bases de Données & APIs -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-animation">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
               <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -306,7 +394,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-green-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -314,7 +402,7 @@
               <span class="text-xs text-gray-500">80%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+              <div class="bg-green-500 h-2 rounded-full progress-bar" style="--progress-width: 80%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -322,7 +410,7 @@
               <span class="text-xs text-gray-500">75%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+              <div class="bg-green-500 h-2 rounded-full progress-bar" style="--progress-width: 75%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -330,7 +418,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-green-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -338,13 +426,13 @@
               <span class="text-xs text-gray-500">80%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+              <div class="bg-green-500 h-2 rounded-full progress-bar" style="--progress-width: 80%"></div>
             </div>
           </div>
         </div>
 
         <!-- Outils & Méthodologies -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-animation">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mr-4">
               <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -360,7 +448,7 @@
               <span class="text-xs text-gray-500">80%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-orange-500 h-2 rounded-full" style="width: 80%"></div>
+              <div class="bg-orange-500 h-2 rounded-full progress-bar" style="--progress-width: 80%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -368,7 +456,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-orange-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-orange-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -376,7 +464,7 @@
               <span class="text-xs text-gray-500">90%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-orange-500 h-2 rounded-full" style="width: 90%"></div>
+              <div class="bg-orange-500 h-2 rounded-full progress-bar" style="--progress-width: 90%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -384,7 +472,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-orange-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-orange-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -392,13 +480,13 @@
               <span class="text-xs text-gray-500">75%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-orange-500 h-2 rounded-full" style="width: 75%"></div>
+              <div class="bg-orange-500 h-2 rounded-full progress-bar" style="--progress-width: 75%"></div>
             </div>
           </div>
         </div>
 
         <!-- Compétences Humaines -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-animation">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-lg flex items-center justify-center mr-4">
               <svg class="w-6 h-6 text-pink-600 dark:text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -413,7 +501,7 @@
               <span class="text-xs text-gray-500">95%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-pink-500 h-2 rounded-full" style="width: 95%"></div>
+              <div class="bg-pink-500 h-2 rounded-full progress-bar" style="--progress-width: 95%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -421,7 +509,7 @@
               <span class="text-xs text-gray-500">90%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
+              <div class="bg-pink-500 h-2 rounded-full progress-bar" style="--progress-width: 90%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -429,7 +517,7 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-pink-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-pink-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -437,7 +525,7 @@
               <span class="text-xs text-gray-500">90%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
+              <div class="bg-pink-500 h-2 rounded-full progress-bar" style="--progress-width: 90%"></div>
             </div>
             
             <div class="flex items-center justify-between">
@@ -445,13 +533,13 @@
               <span class="text-xs text-gray-500">85%</span>
             </div>
             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div class="bg-pink-500 h-2 rounded-full" style="width: 85%"></div>
+              <div class="bg-pink-500 h-2 rounded-full progress-bar" style="--progress-width: 85%"></div>
             </div>
           </div>
         </div>
 
         <!-- Compétences Linguistiques -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-animation">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mr-4">
               <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -488,33 +576,16 @@
         </div>
       </div>
 
-      <!-- Additional Skills Tags -->
-      <div class="max-w-4xl mx-auto">
-        <h3 class="text-xl font-semibold text-center mb-6 dark:text-white">Autres Compétences</h3>
-        <div class="flex flex-wrap justify-center gap-3">
-          <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Node.js</span>
-          <span class="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium">Express.js</span>
-          <span class="px-4 py-2 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium">TypeScript</span>
-          <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm font-medium">GraphQL</span>
-          <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">JWT</span>
-          <span class="px-4 py-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm font-medium">OAuth</span>
-          <span class="px-4 py-2 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Docker</span>
-          <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium">AWS</span>
-          <span class="px-4 py-2 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 rounded-full text-sm font-medium">Vercel</span>
-          <span class="px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium">CI/CD</span>
-          <span class="px-4 py-2 bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 rounded-full text-sm font-medium">Agile</span>
-          <span class="px-4 py-2 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 rounded-full text-sm font-medium">Scrum</span>
-        </div>
-      </div>
+    
     </div>
   </section>
 
   <!-- Experience Section -->
   <section id="experience" class="py-16 md:py-20 bg-white dark:bg-gray-800">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white">Expériences Professionnelles</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white slide-in-up">Expériences Professionnelles</h2>
       <div class="max-w-4xl mx-auto space-y-6 md:space-y-8">
-        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg slide-in-left">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Développeuse Informatique</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">BiBatech Casablanca, Morocco | Septembre 2024 - Mars 2025</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
@@ -524,7 +595,7 @@
           </ul>
         </div>
         
-        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg slide-in-right">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Développeuse Full Stack</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">ARKX Casablanca | Janvier 2024 - Juin 2024</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
@@ -534,7 +605,7 @@
           </ul>
         </div>
         
-        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg slide-in-left">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Développeuse Full Stack (Odoo & WordPress)</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">ENSWORK Casablanca | Septembre 2023 - Novembre 2023</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
@@ -544,7 +615,7 @@
           </ul>
         </div>
         
-        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg slide-in-right">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage en Développement Front-End</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">EFE-Maroc Academy Casablanca - Technopark | Juin 2023 - Juillet 2023</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
@@ -554,7 +625,7 @@
           </ul>
         </div>
         
-        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg slide-in-left">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Intégrateur Web</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">Web Agency Casablanca | Septembre 2022 - Octobre 2022</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
@@ -563,7 +634,7 @@
           </ul>
         </div>
         
-        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg slide-in-right">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Fin de Formation</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">Geomaroc Casablanca | Mars 2022 - Avril 2022</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
@@ -578,21 +649,21 @@
   <!-- Education Section -->
   <section id="education" class="py-16 md:py-20 bg-gray-50 dark:bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white">Formation & Diplômes</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white slide-in-up">Formation & Diplômes</h2>
       <div class="max-w-4xl mx-auto space-y-6 md:space-y-8">
-        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg">
+        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg scale-in">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Formation FullStack JAVASCRIPT (MERN)</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">Jobintech Casablanca, Morocco | Janvier 2024 - Juin 2024</p>
           <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Formation sur le développement FullStack avec la pile MERN (MongoDB, Express.js, React.js, Node.js). Acquisition de compétences en création d'applications web dynamiques et développement d'API.</p>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg">
+        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg scale-in">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Technicien Spécialisé en Développement Informatique (Bac+2)</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">Institut Spécialisé de Technologie Appliquée BEN M'SIK Casablanca, Morocco | 2020 - 2022</p>
           <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Préparation au développement informatique</p>
         </div>
         
-        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg">
+        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg scale-in">
           <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">BACCALAURÉAT</h3>
           <p class="text-primary font-medium mb-2 text-sm md:text-base">Lycée Driss El HARTI Casablanca, Morocco | 2020</p>
           <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Baccalauréat international sciences expérimentales option physique</p>
@@ -604,22 +675,22 @@
   <!-- Contact Section -->
   <section id="contact" class="py-16 md:py-20 bg-white dark:bg-gray-800">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white">Contactez-moi</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white slide-in-up">Contactez-moi</h2>
       <div class="max-w-2xl mx-auto">
-        <p class="text-center text-gray-600 dark:text-gray-300 mb-8 text-sm md:text-base px-4">
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-8 text-sm md:text-base px-4 slide-in-up">
           Vous avez un projet en tête ? N'hésitez pas à me contacter pour en discuter. 
           Je suis toujours ouvert à de nouvelles opportunités et collaborations.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-          <div class="text-center">
+          <div class="text-center bounce-in">
             <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 dark:text-white">Email</h3>
             <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">maryamlabyed2002@gmail.com</p>
           </div>
-          <div class="text-center">
+          <div class="text-center bounce-in">
             <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 dark:text-white">Téléphone</h3>
             <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">0616-885898</p>
           </div>
-          <div class="text-center sm:col-span-2">
+          <div class="text-center sm:col-span-2 bounce-in">
             <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 dark:text-white">Localisation</h3>
             <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Casablanca, Morocco</p>
           </div>
@@ -679,6 +750,36 @@
       fadeEls.forEach(el => {
         el.style.animationPlayState = 'paused';
         observer.observe(el);
+      });
+    });
+    
+    // Enhanced scroll animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up, .scale-in, .rotate-in, .bounce-in, .stagger-animation');
+      
+      const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            
+            // Animate progress bars when skills section is visible
+            if (entry.target.classList.contains('stagger-animation')) {
+              const progressBars = entry.target.querySelectorAll('.progress-bar');
+              progressBars.forEach(bar => {
+                setTimeout(() => {
+                  bar.classList.add('animate');
+                }, 300);
+              });
+            }
+          }
+        });
+      }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      animatedElements.forEach(el => {
+        animationObserver.observe(el);
       });
     });
     
