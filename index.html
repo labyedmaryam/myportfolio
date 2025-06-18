@@ -98,11 +98,20 @@
   <nav class="fixed w-full z-30 top-0 left-0 bg-white/90 dark:bg-dark/90 shadow-sm backdrop-blur-md">
     <div class="max-w-5xl mx-auto flex justify-between items-center px-4 py-3">
       <span class="font-extrabold text-primary text-xl tracking-tight">Maryam</span>
-      <div class="flex items-center gap-6">
+      
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      
+      <!-- Desktop navigation -->
+      <div class="hidden md:flex items-center gap-6">
         <a href="#about" class="nav-link text-sm">À propos</a>
         <a href="#skills" class="nav-link text-sm">Compétences</a>
-        <!-- <a href="#projects" class="nav-link text-sm">Projets</a> -->
-        <a href="#resume" class="nav-link text-sm">Parcours</a>
+        <a href="#experience" class="nav-link text-sm">Expérience</a>
+        <a href="#education" class="nav-link text-sm">Formation</a>
         <a href="#contact" class="nav-link text-sm">Contact</a>
         <button id="theme-toggle" class="ml-2 p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition flex items-center justify-center">
           <svg id="theme-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,21 +120,40 @@
         </button>
       </div>
     </div>
+    
+    <!-- Mobile navigation menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark border-t border-gray-200 dark:border-gray-700">
+      <div class="px-4 py-3 space-y-3">
+        <a href="#about" class="block nav-link text-sm py-2">À propos</a>
+        <a href="#skills" class="block nav-link text-sm py-2">Compétences</a>
+        <a href="#experience" class="block nav-link text-sm py-2">Expérience</a>
+        <a href="#education" class="block nav-link text-sm py-2">Formation</a>
+        <a href="#contact" class="block nav-link text-sm py-2">Contact</a>
+        <div class="flex items-center justify-between pt-2">
+          <span class="text-sm text-gray-600 dark:text-gray-400">Thème</span>
+          <button id="theme-toggle-mobile" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="w-full flex flex-col items-center justify-center pt-36 pb-16 px-4 bg-gradient-to-br from-primary/5 via-accent/5 to-neutral">
+  <section class="w-full flex flex-col items-center justify-center pt-32 md:pt-36 pb-12 md:pb-16 px-4 bg-gradient-to-br from-primary/5 via-accent/5 to-neutral">
     <div class="max-w-3xl w-full flex flex-col items-center text-center">
-      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maryam Labyed" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-8 border-white dark:border-dark shadow-xl object-cover mb-6 fade-in">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight fade-in delay-1">Bienvenue sur mon Portfolio !</h1>
-      <h2 class="text-lg md:text-xl text-primary font-semibold mb-4 fade-in delay-2">Maryam Labyed — Développeuse Full Stack à Casablanca</h2>
-      <p class="mb-6 text-center max-w-2xl fade-in delay-3 text-lg">Développeuse passionnée spécialisée dans la création d'applications web modernes et performantes. Expert en React.js, Node.js, et architectures cloud-native. Toujours à la recherche de nouveaux défis techniques !</p>
-      <div class="flex gap-4 mb-4 fade-in delay-3">
-        <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-accent transition">Me contacter</a>
-        <a href="#resume" class="bg-white dark:bg-dark border border-primary text-primary px-6 py-2 rounded-full font-semibold shadow hover:bg-primary hover:text-white transition">Voir mon CV</a>
+      <img src="./maryam.jpg" alt="Maryam Labyed" class="w-28 h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full border-6 md:border-8 border-white dark:border-dark shadow-xl object-cover mb-6 fade-in">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 tracking-tight fade-in delay-1 px-2">Bienvenue sur mon Portfolio !</h1>
+      <h2 class="text-base md:text-lg lg:text-xl text-primary font-semibold mb-4 fade-in delay-2 px-2">Maryam Labyed — Développeuse Informatique à Casablanca</h2>
+      <p class="mb-6 text-center max-w-2xl fade-in delay-3 text-base md:text-lg px-4">Développeuse passionnée spécialisée dans la création d'applications web modernes. Expert en React.js, Laravel, WordPress et développement full-stack. Toujours à la recherche de nouveaux défis techniques !</p>
+      <div class="flex flex-col sm:flex-row gap-4 mb-4 fade-in delay-3 w-full max-w-md">
+        <a href="#contact" class="bg-primary text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-accent transition text-center">Me contacter</a>
+        <a href="#experience" class="bg-white dark:bg-dark border border-primary text-primary px-6 py-3 rounded-full font-semibold shadow hover:bg-primary hover:text-white transition text-center">Voir mon CV</a>
       </div>
       <div class="flex gap-4 fade-in delay-3">
-        <a href="mailto:maryamlabyed2002@gmail.com" class="social-link text-primary" title="Email"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm0 0v1a4 4 0 01-8 0v-1"></path></svg></a>
+        <a href="mailto:maryamlabyed2002@gmail.com" class="social-link text-primary" title="Email"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>
         <a href="#" class="social-link text-primary" title="LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.003 3.604 4.605v5.591z"/></svg></a>
         <a href="#" class="social-link text-primary" title="GitHub"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.578.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg></a>
       </div>
@@ -138,7 +166,7 @@
       <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">À Propos de Moi</h2>
       <div class="max-w-3xl mx-auto text-center">
         <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          En tant que développeuse full stack basée à Casablanca, je combine expertise technique et créativité pour créer des solutions web innovantes. 
+          En tant que développeuse informatique basée à Casablanca, je combine expertise technique et créativité pour créer des solutions web innovantes. 
           Mon parcours m'a permis de maîtriser les technologies modernes tout en développant une approche centrée sur l'utilisateur.
         </p>
         <p class="text-lg text-gray-600 dark:text-gray-300">
@@ -150,134 +178,450 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <section id="skills" class="py-16 md:py-20 bg-gray-50 dark:bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Mes Compétences</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold mb-4 dark:text-white">Développement Front-end</h3>
-          <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li>• React.js & Next.js - Applications web modernes</li>
-            <li>• TypeScript - Développement typé et robuste</li>
-            <li>• Tailwind CSS - Design responsive et moderne</li>
-            <li>• Redux & Context API - Gestion d'état</li>
-            <li>• Jest & React Testing Library - Tests unitaires</li>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white">Mes Compétences</h2>
+      
+      <!-- Main Skills Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12">
+        <!-- Langages de Programmation -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold dark:text-white">Langages de Programmation</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">HTML5</span>
+              <span class="text-xs text-gray-500">95%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">CSS3</span>
+              <span class="text-xs text-gray-500">90%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">JavaScript</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">PHP</span>
+              <span class="text-xs text-gray-500">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Python</span>
+              <span class="text-xs text-gray-500">75%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frameworks & Bibliothèques -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold dark:text-white">Frameworks & Bibliothèques</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">React.js</span>
+              <span class="text-xs text-gray-500">90%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-purple-500 h-2 rounded-full" style="width: 90%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Bootstrap</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Tailwind CSS</span>
+              <span class="text-xs text-gray-500">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">WordPress</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Elementor</span>
+              <span class="text-xs text-gray-500">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bases de Données & APIs -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold dark:text-white">Bases de Données & APIs</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">MySQL</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">SQL Server</span>
+              <span class="text-xs text-gray-500">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">MongoDB</span>
+              <span class="text-xs text-gray-500">75%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">REST API</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">WordPress REST API</span>
+              <span class="text-xs text-gray-500">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outils & Méthodologies -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold dark:text-white">Outils & Méthodologies</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">MERISE</span>
+              <span class="text-xs text-gray-500">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width: 80%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Git</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">ClickUp & Trello</span>
+              <span class="text-xs text-gray-500">90%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width: 90%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Windows & Linux</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Laravel</span>
+              <span class="text-xs text-gray-500">75%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-orange-500 h-2 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compétences Humaines -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-pink-600 dark:text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold dark:text-white">Compétences Humaines</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Autonomie</span>
+              <span class="text-xs text-gray-500">95%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-pink-500 h-2 rounded-full" style="width: 95%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Capacité de décision</span>
+              <span class="text-xs text-gray-500">90%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Esprit d'analyse</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-pink-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Esprit d'équipe</span>
+              <span class="text-xs text-gray-500">90%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Résolution de problèmes</span>
+              <span class="text-xs text-gray-500">85%</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-pink-500 h-2 rounded-full" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compétences Linguistiques -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+              </svg>
+            </div>
+            <h3 class="text-lg md:text-xl font-semibold dark:text-white">Compétences Linguistiques</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Français</span>
+              <span class="text-xs text-gray-500">Intermédiaire</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-indigo-500 h-2 rounded-full" style="width: 70%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Arabe</span>
+              <span class="text-xs text-gray-500">Langue maternelle</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-indigo-500 h-2 rounded-full" style="width: 100%"></div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Anglais</span>
+              <span class="text-xs text-gray-500">Intermédiaire</span>
+            </div>
+            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div class="bg-indigo-500 h-2 rounded-full" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Skills Tags -->
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-xl font-semibold text-center mb-6 dark:text-white">Autres Compétences</h3>
+        <div class="flex flex-wrap justify-center gap-3">
+          <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Node.js</span>
+          <span class="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium">Express.js</span>
+          <span class="px-4 py-2 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium">TypeScript</span>
+          <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm font-medium">GraphQL</span>
+          <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">JWT</span>
+          <span class="px-4 py-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm font-medium">OAuth</span>
+          <span class="px-4 py-2 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 rounded-full text-sm font-medium">Docker</span>
+          <span class="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium">AWS</span>
+          <span class="px-4 py-2 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 rounded-full text-sm font-medium">Vercel</span>
+          <span class="px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium">CI/CD</span>
+          <span class="px-4 py-2 bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 rounded-full text-sm font-medium">Agile</span>
+          <span class="px-4 py-2 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 rounded-full text-sm font-medium">Scrum</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 md:py-20 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white">Expériences Professionnelles</h2>
+      <div class="max-w-4xl mx-auto space-y-6 md:space-y-8">
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Développeuse Informatique</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">BiBatech Casablanca, Morocco | Septembre 2024 - Mars 2025</p>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
+            <li>Conception et développement d'une application web avec React.js et Laravel</li>
+            <li>Réalisation d'un projet Laravel avec gestion des utilisateurs et authentification</li>
+            <li>Optimisation du code et mise en place des bonnes pratiques de développement</li>
           </ul>
         </div>
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold mb-4 dark:text-white">Développement Back-end</h3>
-          <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li>• Node.js & Express.js - APIs RESTful</li>
-            <li>• MongoDB - Base de données NoSQL</li>
-            <li>• PostgreSQL - Base de données relationnelle</li>
-            <li>• GraphQL - APIs flexibles</li>
-            <li>• JWT & OAuth - Authentification sécurisée</li>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Développeuse Full Stack</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">ARKX Casablanca | Janvier 2024 - Juin 2024</p>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
+            <li>Conception et développement d'interfaces utilisateur réactives avec React.js</li>
+            <li>Développement d'API RESTful avec Node.js et Express.js</li>
+            <li>Gestion et optimisation de bases de données MongoDB</li>
           </ul>
         </div>
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold mb-4 dark:text-white">DevOps & Outils</h3>
-          <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li>• Git & GitHub - Gestion de versions</li>
-            <li>• Docker - Conteneurisation</li>
-            <li>• AWS & Vercel - Déploiement cloud</li>
-            <li>• CI/CD - Intégration continue</li>
-            <li>• Agile & Scrum - Méthodologies</li>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Développeuse Full Stack (Odoo & WordPress)</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">ENSWORK Casablanca | Septembre 2023 - Novembre 2023</p>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
+            <li>Conception et personnalisation d'applications Odoo/Flectra</li>
+            <li>Développement en Python avec les frameworks Odoo/Flectra</li>
+            <li>Création et gestion de sites Web WordPress</li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage en Développement Front-End</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">EFE-Maroc Academy Casablanca - Technopark | Juin 2023 - Juillet 2023</p>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
+            <li>Développement d'un site web réactif avec React JS et Bootstrap</li>
+            <li>Conception de composants et développement d'interface utilisateur</li>
+            <li>Garantie de la qualité du code</li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Intégrateur Web</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">Web Agency Casablanca | Septembre 2022 - Octobre 2022</p>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
+            <li>Conception et développement d'un site internet pour une entreprise de nettoyage</li>
+            <li>Utilisation d'HTML, CSS et Bootstrap pour un design moderne et réactif</li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Stage Fin de Formation</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">Geomaroc Casablanca | Mars 2022 - Avril 2022</p>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 text-sm md:text-base">
+            <li>Développement d'une application de bureau pour la gestion d'entreprise</li>
+            <li>Utilisation de SQL Server/ADO .NET pour la gestion de base de données</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <!--
-  <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900">
-      <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Mes Projets</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                  <img src="https://via.placeholder.com/400x300" alt="Project 1" class="w-full h-48 object-cover">
-                  <div class="p-6">
-                      <h3 class="text-xl font-semibold mb-2 dark:text-white">Projet 1</h3>
-                      <p class="text-gray-600 dark:text-gray-300 mb-4">Description du projet 1</p>
-                      <div class="flex gap-2">
-                          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm dark:bg-blue-900 dark:text-blue-200">React</span>
-                          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm dark:bg-green-900 dark:text-green-200">Node.js</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                  <img src="https://via.placeholder.com/400x300" alt="Project 2" class="w-full h-48 object-cover">
-                  <div class="p-6">
-                      <h3 class="text-xl font-semibold mb-2 dark:text-white">Projet 2</h3>
-                      <p class="text-gray-600 dark:text-gray-300 mb-4">Description du projet 2</p>
-                      <div class="flex gap-2">
-                          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm dark:bg-purple-900 dark:text-purple-200">Vue.js</span>
-                          <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm dark:bg-yellow-900 dark:text-yellow-200">MongoDB</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                  <img src="https://via.placeholder.com/400x300" alt="Project 3" class="w-full h-48 object-cover">
-                  <div class="p-6">
-                      <h3 class="text-xl font-semibold mb-2 dark:text-white">Projet 3</h3>
-                      <p class="text-gray-600 dark:text-gray-300 mb-4">Description du projet 3</p>
-                      <div class="flex gap-2">
-                          <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm dark:bg-red-900 dark:text-red-200">Angular</span>
-                          <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm dark:bg-blue-900 dark:text-blue-200">Firebase</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  -->
-
-  <!-- Resume/Education Section -->
-  <section id="resume" class="py-20 bg-white dark:bg-gray-800">
+  <!-- Education Section -->
+  <section id="education" class="py-16 md:py-20 bg-gray-50 dark:bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Parcours Professionnel</h2>
-      <div class="max-w-3xl mx-auto">
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-2 dark:text-white">Développeuse Full Stack Senior</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-2">Tech Solutions Inc. | 2020 - Présent</p>
-          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-            <li>Développement d'applications web full-stack avec React.js et Node.js</li>
-            <li>Conception et implémentation d'architectures cloud-native sur AWS</li>
-            <li>Mise en place de pipelines CI/CD avec GitHub Actions</li>
-            <li>Optimisation des performances et de la scalabilité des applications</li>
-          </ul>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white">Formation & Diplômes</h2>
+      <div class="max-w-4xl mx-auto space-y-6 md:space-y-8">
+        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Formation FullStack JAVASCRIPT (MERN)</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">Jobintech Casablanca, Morocco | Janvier 2024 - Juin 2024</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Formation sur le développement FullStack avec la pile MERN (MongoDB, Express.js, React.js, Node.js). Acquisition de compétences en création d'applications web dynamiques et développement d'API.</p>
         </div>
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-2 dark:text-white">Développeuse Front-end</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-2">Digital Agency | 2018 - 2020</p>
-          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
-            <li>Création d'interfaces utilisateur modernes avec React.js</li>
-            <li>Intégration d'APIs RESTful et GraphQL</li>
-            <li>Mise en place de tests unitaires avec Jest</li>
-            <li>Collaboration avec les designers pour l'implémentation de maquettes</li>
-          </ul>
+        
+        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">Technicien Spécialisé en Développement Informatique (Bac+2)</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">Institut Spécialisé de Technologie Appliquée BEN M'SIK Casablanca, Morocco | 2020 - 2022</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Préparation au développement informatique</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg">
+          <h3 class="text-lg md:text-xl font-semibold mb-2 dark:text-white">BACCALAURÉAT</h3>
+          <p class="text-primary font-medium mb-2 text-sm md:text-base">Lycée Driss El HARTI Casablanca, Morocco | 2020</p>
+          <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Baccalauréat international sciences expérimentales option physique</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <section id="contact" class="py-16 md:py-20 bg-white dark:bg-gray-800">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Contactez-moi</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 dark:text-white">Contactez-moi</h2>
       <div class="max-w-2xl mx-auto">
-        <p class="text-center text-gray-600 dark:text-gray-300 mb-8">
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-8 text-sm md:text-base px-4">
           Vous avez un projet en tête ? N'hésitez pas à me contacter pour en discuter. 
           Je suis toujours ouvert à de nouvelles opportunités et collaborations.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           <div class="text-center">
-            <h3 class="text-xl font-semibold mb-4 dark:text-white">Email</h3>
-            <p class="text-gray-600 dark:text-gray-300">contact@example.com</p>
+            <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 dark:text-white">Email</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">maryamlabyed2002@gmail.com</p>
           </div>
           <div class="text-center">
-            <h3 class="text-xl font-semibold mb-4 dark:text-white">Téléphone</h3>
-            <p class="text-gray-600 dark:text-gray-300">+33 6 12 34 56 78</p>
+            <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 dark:text-white">Téléphone</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">0616-885898</p>
+          </div>
+          <div class="text-center sm:col-span-2">
+            <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 dark:text-white">Localisation</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base">Casablanca, Morocco</p>
           </div>
         </div>
       </div>
@@ -286,11 +630,29 @@
 
   <footer class="w-full bg-white/90 dark:bg-dark/90 text-center text-xs text-gray-500 dark:text-gray-400 py-4 mt-auto border-t border-gray-200 dark:border-gray-700">&copy; 2024 Maryam Labyed</footer>
   <script>
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
     // Dark/Light mode toggle with icon morph
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const themePath = document.getElementById('theme-path');
-    themeToggle.addEventListener('click', () => {
+    
+    function toggleTheme() {
       document.documentElement.classList.toggle('dark');
       // Animate icon (moon/sun)
       if(document.documentElement.classList.contains('dark')) {
@@ -298,7 +660,11 @@
       } else {
         themePath.setAttribute('d', 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z');
       }
-    });
+    }
+    
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggleMobile.addEventListener('click', toggleTheme);
+    
     // Animate fade-in on scroll
     document.addEventListener('DOMContentLoaded', () => {
       const fadeEls = document.querySelectorAll('.fade-in');
@@ -313,6 +679,21 @@
       fadeEls.forEach(el => {
         el.style.animationPlayState = 'paused';
         observer.observe(el);
+      });
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   </script>
